@@ -7,6 +7,7 @@ export const NewYorkerExtractor = {
     selectors: [
       'h1[class^="ArticleHeader__hed"]',
       ['meta[name="og:title"]', 'value'],
+      'h1[class^="content-header__hed"]',
     ],
   },
 
@@ -14,11 +15,12 @@ export const NewYorkerExtractor = {
     selectors: [
       'div[class^="ArticleContributors"] a[rel="author"]',
       'article header div[class*="Byline__multipleContributors"]',
+      'div[class="content-header__byline__content"] span[class*="byline__name"]',
     ],
   },
 
   content: {
-    selectors: ['main[class^="Layout__content"]'],
+    selectors: ['article[class*="main-content"]'],
 
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
@@ -27,13 +29,14 @@ export const NewYorkerExtractor = {
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['footer[class^="ArticleFooter__footer"]'],
+    clean: [
+      'div[class*="content-header__accreditation"]',
+      'footer[class^="ArticleFooter__footer"]',
+    ],
   },
 
   date_published: {
-    selectors: [['meta[name="pubdate"]', 'value']],
-    format: 'YYYYMMDD',
-    timezone: 'America/New_York',
+    selectors: ['time[class*="__publish-date"]'],
   },
 
   lead_image_url: {
@@ -41,7 +44,7 @@ export const NewYorkerExtractor = {
   },
 
   dek: {
-    selectors: ['h2[class^="ArticleHeader__dek"]'],
+    selectors: [['meta[name="description"]', 'value']],
   },
 
   next_page_url: null,

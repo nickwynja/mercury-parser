@@ -14,9 +14,9 @@ describe('NewYorkerExtractor', () => {
     let url;
     beforeAll(() => {
       url =
-        'http://www.newyorker.com/tech/elements/hacking-cryptography-and-the-countdown-to-quantum-computing';
+        'https://www.newyorker.com/news/our-columnists/why-are-some-journalists-afraid-of-moral-clarity';
       const html = fs.readFileSync(
-        './fixtures/www.newyorker.com/1557138180688.html'
+        './fixtures/www.newyorker.com/1593091410910.html'
       );
       result = Mercury.parse(url, { html, fallback: false });
     });
@@ -40,7 +40,7 @@ describe('NewYorkerExtractor', () => {
       // the article.
       assert.equal(
         title,
-        'Hacking, Cryptography, and the Countdown to Quantum Computing'
+        'Why Are Some Journalists Afraid of “Moral Clarity”?'
       );
     });
 
@@ -51,7 +51,7 @@ describe('NewYorkerExtractor', () => {
 
       // Update these values with the expected values from
       // the article.
-      assert.equal(author, 'Alex Hutchinson');
+      assert.equal(author, 'Masha Gessen');
     });
 
     it('returns the date_published', async () => {
@@ -61,7 +61,7 @@ describe('NewYorkerExtractor', () => {
 
       // Update these values with the expected values from
       // the article.
-      assert.equal(date_published.split('T')[0], '2016-09-26');
+      assert.equal(date_published.split('T')[0], '2020-06-24');
     });
 
     it('returns the lead_image_url', async () => {
@@ -73,7 +73,7 @@ describe('NewYorkerExtractor', () => {
       // the article.
       assert.equal(
         lead_image_url,
-        'https://media.newyorker.com/photos/59097a5e8b51cf59fc4239f5/16:9/w_1200,h_630,c_limit/Hutchinson-Quantum-Computing.jpg'
+        'https://media.newyorker.com/photos/5ef2346cb975762d612e07a2/16:9/w_1280,c_limit/Gessen-MoralClarity.jpg'
       );
     });
 
@@ -97,7 +97,7 @@ describe('NewYorkerExtractor', () => {
       // the article.
       assert.equal(
         first13,
-        'In a laboratory in Shanghai, researchers work on developing a quantum computer—a new'
+        'Until recently, ideas such as defunding the police fell outside of what news'
       );
     });
   });
@@ -107,9 +107,9 @@ describe('NewYorkerExtractor', () => {
     let url;
     beforeAll(() => {
       url =
-        'http://www.newyorker.com/magazine/2016/12/05/lessons-from-my-mother';
+        'https://www.newyorker.com/magazine/2020/06/29/what-fiona-hill-learned-in-the-white-house';
       const html = fs.readFileSync(
-        './fixtures/www.newyorker.com/1557145645680.html'
+        './fixtures/www.newyorker.com/1593090643268.html'
       );
       result = Mercury.parse(url, { html, fallback: false });
     });
@@ -119,14 +119,14 @@ describe('NewYorkerExtractor', () => {
 
       assert.equal(
         dek,
-        'I had a sense that she was a good teacher, but I had no idea that she was such an influential one, and in the very area I had chosen.'
+        'The senior fellow at Brookings and expert on modern Russia had hoped to guide the U.S.-Russia relationship. President Trump had other ideas.'
       );
     });
 
     it('returns the date for magazine content', async () => {
       const { date_published } = await result;
 
-      assert.equal(date_published.split('T')[0], '2016-11-28');
+      assert.equal(date_published.split('T')[0], '2020-06-22');
     });
   });
 

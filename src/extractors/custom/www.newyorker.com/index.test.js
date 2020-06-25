@@ -97,7 +97,7 @@ describe('NewYorkerExtractor', () => {
       // the article.
       assert.equal(
         first13,
-        'Until recently, ideas such as defunding the police fell outside of what news'
+        'What’s so terrible about moral clarity? A future historian of June of 2020—a'
       );
     });
   });

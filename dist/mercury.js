@@ -1961,14 +1961,14 @@ var NewYorkerExtractor = {
     selectors: ['div[class^="ArticleContributors"] a[rel="author"]', 'article header div[class*="Byline__multipleContributors"]', 'div[class="content-header__byline__content"] span[class*="byline__name"]']
   },
   content: {
-    selectors: ['article[class*="main-content"]'],
+    selectors: ['article[class*="main-content"] div[class^="content-background"]'],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: [],
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['div[class*="content-header__accreditation"]', 'footer[class^="ArticleFooter__footer"]']
+    clean: ['footer[class^="ArticleFooter__footer"]']
   },
   date_published: {
     selectors: ['time[class*="__publish-date"]']

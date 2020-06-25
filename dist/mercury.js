@@ -176,11 +176,6 @@ function hasSentenceEnd(text) {
   return SENTENCE_END_RE.test(text);
 }
 
-function excerptContent(content) {
-  var words = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
-  return content.trim().split(/\s+/).slice(0, words).join(' ');
-}
-
 // used in our fetchResource function to
 // ensure correctly encoded responses
 
@@ -1911,7 +1906,9 @@ var NYTimesExtractor = {
   lead_image_url: {
     selectors: [['meta[name="og:image"]', 'value']]
   },
-  dek: null,
+  dek: {
+    selectors: [['meta[name="description"]', 'value']]
+  },
   next_page_url: null,
   excerpt: null
 };
@@ -5978,12 +5975,9 @@ function clean$1(leadImageUrl) {
 // Return None if the dek wasn't good enough.
 
 function cleanDek(dek, _ref) {
-  var $ = _ref.$,
-      excerpt = _ref.excerpt;
+  var $ = _ref.$;
   // Sanity check that we didn't get too short or long of a dek.
-  if (dek.length > 1000 || dek.length < 5) return null; // Check that dek isn't the same as excerpt
-
-  if (excerpt && excerptContent(excerpt, 10) === excerptContent(dek, 10)) return null;
+  if (dek.length > 1000 || dek.length < 5) return null;
   var dekText = stripTags(dek, $); // Plain text links shouldn't exist in the dek. If we have some, it's
   // not a good dek - bail.
 

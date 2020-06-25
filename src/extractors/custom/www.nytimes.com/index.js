@@ -56,7 +56,9 @@ export const NYTimesExtractor = {
     selectors: [['meta[name="og:image"]', 'value']],
   },
 
-  dek: null,
+  dek: {
+    selectors: [['meta[name="description"]', 'value']],
+  },
 
   next_page_url: null,
 

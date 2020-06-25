@@ -1977,7 +1977,7 @@ var NewYorkerExtractor = {
     selectors: [['meta[name="og:image"]', 'value']]
   },
   dek: {
-    selectors: [['meta[name="description"]', 'value']]
+    selectors: ['p[class*="header__dek"]']
   },
   next_page_url: null,
   excerpt: null

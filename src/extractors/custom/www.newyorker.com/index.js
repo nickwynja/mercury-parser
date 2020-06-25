@@ -30,7 +30,7 @@ export const NewYorkerExtractor = {
     // The clean selectors will remove anything that matches from
     // the result
     clean: [
-      'div[class*="content-header__accreditation"]',
+      'div[class*="content-header__title-block"]',
       'footer[class^="ArticleFooter__footer"]',
     ],
   },

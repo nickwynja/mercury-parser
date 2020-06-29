@@ -52,12 +52,22 @@ export const NYTimesExtractor = {
         $node.attr('id', null);
         $node.attr('class', null);
 
-        // A heading will be removed if there is not a paragraph before it, so
+        // A subsequent h3 will be removed if there is not a paragraph before it, so
         // add a paragraph here. It will be removed anyway because it is empty.
         $node.before('<p></p>');
 
         // h1 elements will be demoted to h2, so demote h2 elements to h3.
         return 'h3';
+      },
+      h1: $node => {
+        // The "id" attribute values would result in low scores and the element being
+        // removed.
+        $node.attr('id', null);
+        $node.attr('class', null);
+
+        // A subsequent h2 will be removed if there is not a paragraph before it, so
+        // add a paragraph here. It will be removed anyway because it is empty.
+        $node.after('<p></p>');
       },
     },
 

@@ -30,6 +30,11 @@ export const NYTimesExtractor = {
         src = src.replace('{{size}}', width);
         $node.attr('src', src);
       },
+      figure: function($node, $) {
+        const imgSrc = $node.attr('itemid');
+        const $img = $('<img />').attr('src', imgSrc);
+        $node.replaceWith($img);
+      },
     },
 
     clean: [
@@ -45,6 +50,7 @@ export const NYTimesExtractor = {
       '.supplemental',
       '.nocontent',
       '.story-footer-links',
+      '#styln-faq-coronavirus',
     ],
   },
 

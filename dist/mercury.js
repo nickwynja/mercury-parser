@@ -1896,9 +1896,14 @@ var NYTimesExtractor = {
         var width = 640;
         src = src.replace('{{size}}', width);
         $node.attr('src', src);
+      },
+      'figure': function figure($node, $) {
+        var imgSrc = $node.attr('itemid');
+        var $img = $('<img />').attr('src', imgSrc);
+        $node.replaceWith($img);
       }
     },
-    clean: ['.ad', 'header#story-header', '.story-body-1 .lede.video', '.visually-hidden', '#newsletter-promo', '.promo', '.comments-button', '.hidden', '.comments', '.supplemental', '.nocontent', '.story-footer-links']
+    clean: ['.ad', 'header#story-header', '.story-body-1 .lede.video', '.visually-hidden', '#newsletter-promo', '.promo', '.comments-button', '.hidden', '.comments', '.supplemental', '.nocontent', '.story-footer-links', '#styln-faq-coronavirus']
   },
   date_published: {
     selectors: [['meta[name="article:published"]', 'value']]

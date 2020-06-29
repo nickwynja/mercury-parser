@@ -1898,9 +1898,16 @@ var NYTimesExtractor = {
         $node.attr('src', src);
       },
       'figure': function figure($node, $) {
+        // const imgCaption = $node.find('figcaption');
         var imgSrc = $node.attr('itemid');
+        var imgContainer = $node.find('div[data-testid="lazyimage-container"]');
         var $img = $('<img />').attr('src', imgSrc);
-        $node.replaceWith($img);
+        var figChild = $node.children().children().first();
+
+        if (figChild.text() === "Image") {
+          figChild.remove();
+        }
+        imgContainer.replaceWith($img);
       }
     },
     clean: ['.ad', 'header#story-header', '.story-body-1 .lede.video', '.visually-hidden', '#newsletter-promo', '.promo', '.comments-button', '.hidden', '.comments', '.supplemental', '.nocontent', '.story-footer-links', '#styln-faq-coronavirus']

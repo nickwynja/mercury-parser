@@ -30,10 +30,21 @@ export const NYTimesExtractor = {
         src = src.replace('{{size}}', width);
         $node.attr('src', src);
       },
-      figure: function($node, $) {
+      figure: ($node, $) => {
+        // const imgCaption = $node.find('figcaption');
         const imgSrc = $node.attr('itemid');
+        const imgContainer = $node.find(
+          'div[data-testid="lazyimage-container"]'
+        );
         const $img = $('<img />').attr('src', imgSrc);
-        $node.replaceWith($img);
+        const figChild = $node
+          .children()
+          .children()
+          .first();
+        if (figChild.text() === 'Image') {
+          figChild.remove();
+        }
+        imgContainer.replaceWith($img);
       },
     },
 

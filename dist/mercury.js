@@ -5813,6 +5813,37 @@ var EpaperZeitDeExtractor = {
   }
 };
 
+var WwwGqComExtractor = {
+  domain: 'www.gq.com',
+  title: {
+    selectors: ['h1.content-header__hed']
+  },
+  author: {
+    selectors: [['meta[name="author"]', 'value']]
+  },
+  date_published: {
+    selectors: ['time[class="content-header__publish-date"]']
+  },
+  dek: {
+    selectors: ['div[class*="content-header__dek"]']
+  },
+  lead_image_url: {
+    selectors: [['meta[name="og:image"]', 'value']]
+  },
+  content: {
+    selectors: ['div[class*="content-background"]'],
+    // Is there anything in the content you selected that needs transformed
+    // before it's consumable content? E.g., unusual lazy loaded images
+    transforms: {
+      'noscript': 'div'
+    },
+    // Is there anything that is in the result that shouldn't be?
+    // The clean selectors will remove anything that matches from
+    // the result
+    clean: []
+  }
+};
+
 
 
 var CustomExtractors = /*#__PURE__*/Object.freeze({
@@ -5949,7 +5980,8 @@ var CustomExtractors = /*#__PURE__*/Object.freeze({
   WwwPhoronixComExtractor: WwwPhoronixComExtractor,
   PitchforkComExtractor: PitchforkComExtractor,
   BiorxivOrgExtractor: BiorxivOrgExtractor,
-  EpaperZeitDeExtractor: EpaperZeitDeExtractor
+  EpaperZeitDeExtractor: EpaperZeitDeExtractor,
+  WwwGqComExtractor: WwwGqComExtractor
 });
 
 function ownKeys$2(object, enumerableOnly) { var keys = _Object$keys(object); if (_Object$getOwnPropertySymbols) { var symbols = _Object$getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _Object$getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }

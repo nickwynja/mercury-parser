@@ -1957,7 +1957,7 @@ var TheAtlanticExtractor = {
     selectors: [['meta[name="author"]', 'value'], '.c-byline__author']
   },
   content: {
-    selectors: ['article', '.article-body'],
+    selectors: ['.article-body'],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: [],
@@ -1973,7 +1973,7 @@ var TheAtlanticExtractor = {
     selectors: [['time[itemprop="datePublished"]', 'datetime']]
   },
   lead_image_url: {
-    selectors: [['img[itemprop="url"]', 'src']]
+    selectors: [['meta[name="og:image"]', 'value']]
   },
   next_page_url: null,
   excerpt: null
@@ -5835,12 +5835,12 @@ var WwwGqComExtractor = {
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: {
-      'noscript': 'div'
+      noscript: 'div'
     },
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: []
+    clean: ['aside[class*="pullquote-embed"']
   }
 };
 

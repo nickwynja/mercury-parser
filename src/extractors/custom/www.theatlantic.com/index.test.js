@@ -14,9 +14,9 @@ describe('AtlanticExtractor', () => {
     let url;
     beforeAll(() => {
       url =
-        'http://www.theatlantic.com/technology/archive/2016/09/why-new-yorkers-got-a-push-alert-about-a-manhunt/500591/';
+        'https://www.theatlantic.com/politics/archive/2020/06/how-white-house-coronavirus-response-went-wrong/613591/';
       const html = fs.readFileSync(
-        './fixtures/www.theatlantic.com/1474321707642.html'
+        './fixtures/www.theatlantic.com/1593722335841.html'
       );
       result = Mercury.parse(url, { html, fallback: false });
     });
@@ -44,19 +44,16 @@ describe('AtlanticExtractor', () => {
         .trim()
         .slice(0, 20);
 
-      assert.equal(
-        title,
-        'Why New Yorkers Received a Push Alert About a Manhunt'
-      );
-      assert.equal(author, 'Kaveh Waddell');
-      assert.equal(text, 'The city has never b');
+      assert.equal(title, 'The 3 Weeks That Changed Everything');
+      assert.equal(author, 'James Fallows');
+      assert.equal(text, 'Coping with a pandem');
       assert.equal(
         dek,
-        'The city has never before used the emergency system the way it did Monday morning.'
+        'Imagine if the National Transportation Safety Board investigated America’s response to the coronavirus pandemic.'
       );
       assert.equal(
         lead_image_url,
-        'https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTSO9RP/lead_720_405.jpg?mod=1533691849'
+        'https://cdn.theatlantic.com/thumbor/VHMt0Zi3dFnqEzDnuMl38E9SgB4=/0x43:2000x1085/960x500/filters:format(png)/media/img/mt/2020/06/Atlantic_NTSB_v2/original.png'
       );
     });
   });

@@ -11,7 +11,7 @@ export const TheAtlanticExtractor = {
   },
 
   content: {
-    selectors: ['article', '.article-body'],
+    selectors: ['.article-body'],
 
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
@@ -41,7 +41,7 @@ export const TheAtlanticExtractor = {
   },
 
   lead_image_url: {
-    selectors: [['img[itemprop="url"]', 'src']],
+    selectors: [['meta[name="og:image"]', 'value']],
   },
 
   next_page_url: null,

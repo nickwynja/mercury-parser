@@ -11,7 +11,7 @@ export const TheAtlanticExtractor = {
   },
 
   content: {
-    selectors: ['.article-body'],
+    selectors: ['#main-article', '.article-body'],
 
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
@@ -21,6 +21,8 @@ export const TheAtlanticExtractor = {
     // The clean selectors will remove anything that matches from
     // the result
     clean: [
+      '.c-article-header',
+      '.c-lead-media',
       '.partner-box',
       '.callout',
       '.c-article-writer__image',

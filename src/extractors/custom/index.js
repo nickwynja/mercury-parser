@@ -134,3 +134,4 @@ export * from './biorxiv.org';
 export * from './epaper.zeit.de';
 export * from './www.gq.com';
 export * from './www.economist.com';
+export * from './substack.com';

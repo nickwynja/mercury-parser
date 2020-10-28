@@ -1995,7 +1995,7 @@ var NewYorkerExtractor = {
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: {
-      'noscript': 'div'
+      noscript: 'div'
     },
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
@@ -5875,6 +5875,41 @@ var WwwEconomistComExtractor = {
   }
 };
 
+var SubstackComExtractor = {
+  domain: 'substack.com',
+  title: {
+    selectors: [// enter title selectors
+    'h1[class*="post-title"]']
+  },
+  author: {
+    selectors: [// enter author selectors
+    'td[class*="author"]']
+  },
+  date_published: {
+    selectors: [// enter selectors
+    ]
+  },
+  dek: {
+    selectors: [// enter selectors
+    ]
+  },
+  lead_image_url: {
+    selectors: [// enter selectors
+    ]
+  },
+  content: {
+    selectors: [// enter content selectors
+    ],
+    // Is there anything in the content you selected that needs transformed
+    // before it's consumable content? E.g., unusual lazy loaded images
+    transforms: {},
+    // Is there anything that is in the result that shouldn't be?
+    // The clean selectors will remove anything that matches from
+    // the result
+    clean: []
+  }
+};
+
 
 
 var CustomExtractors = /*#__PURE__*/Object.freeze({
@@ -6013,7 +6048,8 @@ var CustomExtractors = /*#__PURE__*/Object.freeze({
   BiorxivOrgExtractor: BiorxivOrgExtractor,
   EpaperZeitDeExtractor: EpaperZeitDeExtractor,
   WwwGqComExtractor: WwwGqComExtractor,
-  WwwEconomistComExtractor: WwwEconomistComExtractor
+  WwwEconomistComExtractor: WwwEconomistComExtractor,
+  SubstackComExtractor: SubstackComExtractor
 });
 
 function ownKeys$2(object, enumerableOnly) { var keys = _Object$keys(object); if (_Object$getOwnPropertySymbols) { var symbols = _Object$getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _Object$getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }

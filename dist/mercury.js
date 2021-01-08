@@ -1964,7 +1964,7 @@ var TheAtlanticExtractor = {
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['article>header', '.c-article-header', '.c-lead-media', '.partner-box', '.callout', '.c-article-writer__image', '.c-article-writer__content', '.c-letters-cta__text', '.c-footer__logo', '.c-recirculation-link', '.twitter-tweet']
+    clean: ['div[class^="ArticleLeadArt"]', 'article>header', '.c-article-header', '.c-lead-media', '.partner-box', '.callout', '.c-article-writer__image', '.c-article-writer__content', '.c-letters-cta__text', '.c-footer__logo', '.c-recirculation-link', '.twitter-tweet']
   },
   dek: {
     selectors: [['meta[name="description"]', 'value']]

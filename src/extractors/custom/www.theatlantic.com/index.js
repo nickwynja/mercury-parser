@@ -21,6 +21,7 @@ export const TheAtlanticExtractor = {
     // The clean selectors will remove anything that matches from
     // the result
     clean: [
+      'div[class^="ArticleLeadArt"]',
       'article>header',
       '.c-article-header',
       '.c-lead-media',

@@ -1957,14 +1957,14 @@ var TheAtlanticExtractor = {
     selectors: [['meta[name="author"]', 'value'], '.c-byline__author']
   },
   content: {
-    selectors: ['#main-article', '.article-body'],
+    selectors: ['article', '#main-article', '.article-body'],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
     transforms: [],
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['.c-article-header', '.c-lead-media', '.partner-box', '.callout', '.c-article-writer__image', '.c-article-writer__content', '.c-letters-cta__text', '.c-footer__logo', '.c-recirculation-link', '.twitter-tweet']
+    clean: ['article>header', '.c-article-header', '.c-lead-media', '.partner-box', '.callout', '.c-article-writer__image', '.c-article-writer__content', '.c-letters-cta__text', '.c-footer__logo', '.c-recirculation-link', '.twitter-tweet']
   },
   dek: {
     selectors: [['meta[name="description"]', 'value']]

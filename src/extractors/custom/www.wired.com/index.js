@@ -6,6 +6,7 @@ export const WiredExtractor = {
   title: {
     selectors: [
       'h1.post-title',
+      'h1[data-testid="ContentHeaderHed"]',
       // enter title selectors
     ],
   },
@@ -13,6 +14,7 @@ export const WiredExtractor = {
   author: {
     selectors: [
       'a[rel="author"]',
+      ['meta[name="author"]', 'value'],
       // enter author selectors
     ],
   },
@@ -20,6 +22,7 @@ export const WiredExtractor = {
   content: {
     selectors: [
       'article.content',
+      'article.main-content',
       // enter content selectors
     ],
 
@@ -30,11 +33,18 @@ export const WiredExtractor = {
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['.visually-hidden', 'figcaption img.photo'],
+    clean: [
+      '.visually-hidden',
+      'figcaption img.photo',
+      '.article__series-navigation',
+    ],
   },
 
   date_published: {
-    selectors: [['meta[itemprop="datePublished"]', 'value']],
+    selectors: [
+      ['meta[itemprop="datePublished"]', 'value'],
+      'time[data-testid="ContentHeaderPublishDate"]',
+    ],
   },
 
   lead_image_url: {

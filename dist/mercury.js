@@ -2021,15 +2021,15 @@ var NewYorkerExtractor = {
 var WiredExtractor = {
   domain: 'www.wired.com',
   title: {
-    selectors: ['h1.post-title' // enter title selectors
+    selectors: ['h1.post-title', 'h1[data-testid="ContentHeaderHed"]' // enter title selectors
     ]
   },
   author: {
-    selectors: ['a[rel="author"]' // enter author selectors
+    selectors: ['a[rel="author"]', ['meta[name="author"]', 'value'] // enter author selectors
     ]
   },
   content: {
-    selectors: ['article.content' // enter content selectors
+    selectors: ['article.content', 'article.main-content' // enter content selectors
     ],
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
@@ -2037,10 +2037,10 @@ var WiredExtractor = {
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['.visually-hidden', 'figcaption img.photo']
+    clean: ['.visually-hidden', 'figcaption img.photo', '.article__series-navigation']
   },
   date_published: {
-    selectors: [['meta[itemprop="datePublished"]', 'value']]
+    selectors: [['meta[itemprop="datePublished"]', 'value'], 'time[data-testid="ContentHeaderPublishDate"]']
   },
   lead_image_url: {
     selectors: [['meta[name="og:image"]', 'value']]

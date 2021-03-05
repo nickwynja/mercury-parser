@@ -32,8 +32,8 @@ urls.map(url => {
     var html = `<h1>${result.title}</h1>${result.content}`
 
     fs.writeFileSync(htmlFile, html)
-    fs.writeFileSync(jsonFile, JSON.stringify(result))
-    execSync(`open ${jsonFile}`)
+    // fs.writeFileSync(jsonFile, JSON.stringify(result))
+    // execSync(`open ${jsonFile}`)
     execSync(`open ${htmlFile}`)
   })
 })

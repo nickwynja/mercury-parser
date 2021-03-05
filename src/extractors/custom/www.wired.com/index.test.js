@@ -14,10 +14,9 @@ describe('WiredExtractor', () => {
     let result;
     let url;
     beforeAll(() => {
-      url =
-        'https://www.wired.com/2016/09/ode-rosetta-spacecraft-going-die-comet/';
+      url = 'https://www.wired.com/story/2034-part-i-peril-south-china-sea/';
       const html = fs.readFileSync(
-        './fixtures/www.wired.com/1475256747028.html'
+        './fixtures/www.wired.com/1614981471670.html'
       );
       result = Mercury.parse(url, { html, fallback: false });
     });
@@ -39,10 +38,7 @@ describe('WiredExtractor', () => {
 
       // Update these values with the expected values from
       // the article.
-      assert.equal(
-        title,
-        'An Ode to the Rosetta Spacecraft as It Flings Itself Into a Comet'
-      );
+      assert.equal(title, '2034, Part I: Peril in the South China Sea');
     });
 
     it('returns the author', async () => {
@@ -52,7 +48,7 @@ describe('WiredExtractor', () => {
 
       // Update these values with the expected values from
       // the article.
-      assert.equal(author, 'Emma Grey Ellis');
+      assert.equal(author, 'Elliot Ackerman');
     });
 
     it('returns the date_published', async () => {
@@ -62,7 +58,7 @@ describe('WiredExtractor', () => {
 
       // Update these values with the expected values from
       // the article.
-      assert.equal(date_published, '2016-09-30T07:00:12.000Z');
+      assert.equal(date_published, '2021-01-26T12:00:00.000Z');
     });
 
     it('returns the lead_image_url', async () => {
@@ -74,7 +70,7 @@ describe('WiredExtractor', () => {
       // the article.
       assert.equal(
         lead_image_url,
-        'https://www.wired.com/wp-content/uploads/2016/09/Rosetta_impact-1-1200x630.jpg'
+        'https://media.wired.com/photos/60087f896ec491c2912c87bb/191:100/w_1280,c_limit/WI020121_FF_2034_Ch1_01.jpg'
       );
     });
 
@@ -98,7 +94,7 @@ describe('WiredExtractor', () => {
       // the article.
       assert.equal(
         first13,
-        'Today, the European Space Agency’s Rosetta spacecraft will engage its thrusters for one'
+        'It surprised her still, even after twenty-four years, the way from horizon to'
       );
     });
   });

@@ -43,7 +43,9 @@ export const SubstackComExtractor = {
     transforms: {
       img: $node => {
         const jAttrs = $node.data('attrs');
-        $node.attr('src', jAttrs.src);
+        if (jAttrs) {
+          $node.attr('src', jAttrs.src);
+        }
       },
     },
 

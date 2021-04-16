@@ -5904,7 +5904,10 @@ var SubstackComExtractor = {
     transforms: {
       img: function img($node) {
         var jAttrs = $node.data('attrs');
-        $node.attr('src', jAttrs.src);
+
+        if (jAttrs) {
+          $node.attr('src', jAttrs.src);
+        }
       }
     },
     // Is there anything that is in the result that shouldn't be?

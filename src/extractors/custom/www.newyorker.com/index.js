@@ -36,6 +36,8 @@ export const NewYorkerExtractor = {
     clean: [
       'footer[class^="ArticleFooter__footer"]',
       'div[class*="social-icons"]',
+      'figure[data-testid*="IframeEmbed"]',
+      'div[data-testid*="GenericCallout"]',
     ],
   },
 

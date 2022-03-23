@@ -2000,7 +2000,7 @@ var NewYorkerExtractor = {
     // Is there anything that is in the result that shouldn't be?
     // The clean selectors will remove anything that matches from
     // the result
-    clean: ['footer[class^="ArticleFooter__footer"]', 'div[class*="social-icons"]']
+    clean: ['footer[class^="ArticleFooter__footer"]', 'div[class*="social-icons"]', 'figure[data-testid*="IframeEmbed"]', 'div[data-testid*="GenericCallout"]']
   },
   date_published: {
     selectors: ['time[class*="__publish-date"]']

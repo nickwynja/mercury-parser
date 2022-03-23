@@ -20,7 +20,9 @@ export const NewYorkerExtractor = {
   },
 
   content: {
-    selectors: ['article[class*="main-content"]'],
+    selectors: [
+      'article[class*="main-content"] div[data-attribute-verso-pattern="article-body"]',
+    ],
 
     // Is there anything in the content you selected that needs transformed
     // before it's consumable content? E.g., unusual lazy loaded images
@@ -46,7 +48,10 @@ export const NewYorkerExtractor = {
   },
 
   dek: {
-    selectors: ['p[class*="header__dek"]'],
+    selectors: [
+      ['meta[name="description"]', 'value'],
+      'p[class*="header__dek"]',
+    ],
   },
 
   next_page_url: null,
